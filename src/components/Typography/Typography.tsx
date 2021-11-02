@@ -9,15 +9,15 @@ export interface TypographyHProps {
 }
 
 export interface TypographyTextProps {
-  variant: 'large' | 'medium' | 'small';
+  size: 'large' | 'medium' | 'small';
   color: keyof typeof colors;
   children: React.ReactNode;
 }
 
 export const TypographyText = (props: TypographyTextProps) => {
-  const { variant = 'medium', color, children } = props;
+  const { size = 'medium', color, children } = props;
   return (
-    <Text variant={variant} color={color}>
+    <Text size={size} color={color}>
       {children}
     </Text>
   );

@@ -2,8 +2,8 @@ import * as colors from '@radix-ui/colors';
 import * as React from 'react';
 import * as S from './styled';
 
-export interface ButtonProps {
-  variants: 'filled' | 'outline' | 'text';
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant: 'filled' | 'outline' | 'text';
   size: 'large' | 'medium';
   children: React.ReactNode;
   color: keyof typeof colors;
@@ -12,13 +12,14 @@ export interface ButtonProps {
 export const Button = (props: ButtonProps) => {
   const {
     children,
-    color,
+    color = 'blue',
     size = 'medium',
-    variants = 'filled',
+    variant = 'filled',
+    ...other
   } = props;
 
   return (
-    <S.ButtonRoot color={color} variant={variants} size={size}>
+    <S.ButtonRoot color={color} variant={variant} size={size} {...other}>
       {children}
     </S.ButtonRoot>
   );

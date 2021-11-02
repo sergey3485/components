@@ -30,6 +30,19 @@
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "arrow-body-style": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "**/*.spec.ts",
+          "**/*.spec.tsx",
+          "**/*.stories.tsx"
+        ]
+      }
+    ],
+    "react/require-default-props": "off"
   }
 }

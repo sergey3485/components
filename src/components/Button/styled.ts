@@ -9,13 +9,11 @@ const getColor = <C extends keyof typeof colors>(color: C, step: number) => {
 
 const size: Record<string, React.CSSProperties> = {
   large: {
-    height: 40,
-    padding: '6px 16px',
+    padding: '8px 16px 8px 16px',
   },
 
   medium: {
-    height: 28,
-    padding: '6px 12px',
+    padding: '6px 12px 6px 12px',
   },
 };
 
@@ -28,7 +26,8 @@ export interface ButtonRootProps {
 export const ButtonRoot = styled.button<ButtonRootProps>((props) => ({
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'flex-start',
+  alignItems: 'centr',
+  justifyContent: 'center',
   borderRadius: 4,
   margin: 0,
   outline: 0,
@@ -39,6 +38,8 @@ export const ButtonRoot = styled.button<ButtonRootProps>((props) => ({
 
   ...(props.variant === 'filled' && {
     backgroundColor: getColor(props.color, 9),
+    color: getColor('whiteA', 12),
+    border: 'none',
 
     '&:hover': {
       backgroundColor: getColor(props.color, 10),
@@ -57,6 +58,8 @@ export const ButtonRoot = styled.button<ButtonRootProps>((props) => ({
 
   ...(props.variant === 'outline' && {
     border: '1px solid',
+    borderColor: getColor(props.color, 8),
+    color: getColor(props.color, 10),
 
     '&:hover': {
       borderColor: getColor(props.color, 8),
@@ -75,6 +78,7 @@ export const ButtonRoot = styled.button<ButtonRootProps>((props) => ({
 
   ...(props.variant === 'text' && {
     border: 'none',
+    color: getColor(props.color, 10),
 
     '&:hover': {
       backgroundColor: getColor(props.color, 4),
