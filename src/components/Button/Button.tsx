@@ -3,10 +3,10 @@ import * as React from 'react';
 import * as S from './styled';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: 'filled' | 'outline' | 'text';
-  size: 'large' | 'medium';
+  variant?: 'filled' | 'outline' | 'text';
+  size?: 'large' | 'medium';
   children: React.ReactNode;
-  color: keyof typeof colors;
+  color?: keyof typeof colors;
 }
 
 export const Button = (props: ButtonProps) => {
