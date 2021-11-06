@@ -26,7 +26,7 @@ export interface ButtonRootProps {
 export const ButtonRoot = styled.button<ButtonRootProps>((props) => ({
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'centr',
+  alignItems: 'center',
   justifyContent: 'center',
   borderRadius: 4,
   margin: 0,

@@ -6,18 +6,19 @@ const getColor = <C extends keyof typeof colors>(color: C, step: number) => {
   return colors[color][saturation];
 };
 
-export interface InputRootProps {
-  variant: 'filled' | 'outline';
+export interface FormRootProps {
+  variant: 'filled' | 'outline' | 'text';
   color: keyof typeof colors;
 }
 
-export const InputRoot = styled.input<InputRootProps>((props) => ({
+export const FormRoot = styled.form<FormRootProps>((props) => ({
   margin: 0,
   outline: 0,
-  cursor: 'pointer',
   backgroundColor: 'transparent',
   padding: '6px 12px 6px 12px',
   borderRadius: '4px',
+  display: 'flex',
+  flexDirection: 'column',
 
   ...(props.variant === 'filled' && {
     backgroundColor: getColor(props.color, 9),
@@ -32,10 +33,13 @@ export const InputRoot = styled.input<InputRootProps>((props) => ({
   ...(props.variant === 'outline' && {
     border: '1px solid',
     borderColor: getColor(props.color, 8),
-    color: getColor(props.color, 10),
 
     '&:focus': {
       borderColor: getColor(props.color, 9),
     },
+  }),
+  ...(props.variant === 'text' && {
+    border: 'none',
+    color: getColor(props.color, 10),
   }),
 }));
