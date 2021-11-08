@@ -13,5 +13,5 @@ const Template: Story<InputBaseProps> = (args) => <InputBase {...args} />;
 export const Filled = Template.bind({});
 
 Filled.args = {
-  variant: 'filled',
+  variant: 'outline',
 };

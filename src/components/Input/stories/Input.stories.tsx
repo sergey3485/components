@@ -15,4 +15,5 @@ export const Filled = Template.bind({});
 Filled.args = {
   variant: 'outline',
   color: 'blue',
+  inputLabel: 'input',
 };
