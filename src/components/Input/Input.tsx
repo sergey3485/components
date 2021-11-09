@@ -10,7 +10,7 @@ export interface InputProps {
   contentColor?: keyof typeof colors;
   inputLabel?: string;
   helper?: string;
-  error: boolean;
+  error?: boolean;
 }
 
 export const Input = (props: InputProps) => {
@@ -20,14 +20,14 @@ export const Input = (props: InputProps) => {
     contentColor = 'blackA',
     helper,
     inputLabel,
-    error,
+    error = false,
   } = props;
   return (
     <S.Container>
       {inputLabel && (
-        <S.InputTitel color={color}>
+        <S.InputTitle color={color}>
           {inputLabel}
-        </S.InputTitel>
+        </S.InputTitle>
       )}
       <InputBase type="text" color={contentColor} variant={variant} />
       {helper && (

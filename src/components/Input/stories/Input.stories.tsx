@@ -13,7 +13,7 @@ const Template: Story<InputProps> = (args) => <Input {...args} />;
 export const Filled = Template.bind({});
 
 Filled.args = {
-  variant: 'outline',
+  variant: 'text',
   color: 'blue',
   inputLabel: 'input',
 };

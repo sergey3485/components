@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import * as colors from '@radix-ui/colors';
 
-import { getColor } from '../utils/colors';
+import { getColor } from '../../utils/colors';
 
 export interface InputBaseContainerProps {
   color: keyof typeof colors;
