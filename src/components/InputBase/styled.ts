@@ -1,12 +1,5 @@
 import styled from 'styled-components';
-import * as colors from '@radix-ui/colors';
-
 import { getColor } from '../../utils/colors';
-
-export interface InputBaseContainerProps {
-  color: keyof typeof colors;
-  variant: 'outline' | 'text' | 'filled';
-}
 
 export const InputRoot = styled.input({
   margin: 0,
@@ -15,36 +8,38 @@ export const InputRoot = styled.input({
   backgroundColor: 'transparent',
   padding: '6px 12px 6px 12px',
   border: 'none',
+  color: 'inherit',
+  fontSize: 'inherit',
 });
 
-export const InputBaseContainer = styled.div<InputBaseContainerProps>((props) => ({
+export const InputBaseContainer = styled.div({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: 'transparent',
+  border: 'none',
+  color: getColor('blackA', 10),
+  fontSize: '16px',
+});
 
-  ...(props.variant === 'filled' && {
-    backgroundColor: getColor(props.color, 9),
-    color: getColor('whiteA', 12),
-    border: 'none',
+export const LeftSide = styled.div({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'transparent',
+  border: 'none',
+  fontSize: 'inheritet',
+  marginLeft: '8px',
+  color: 'inherit',
+});
 
-    '&:focus': {
-      backgroundColor: getColor(props.color, 10),
-    },
-  }),
-
-  ...(props.variant === 'outline' && {
-    border: '1px solid',
-    borderColor: getColor(props.color, 8),
-    color: getColor(props.color, 10),
-
-    '&:focus': {
-      borderColor: getColor(props.color, 9),
-    },
-  }),
-  ...(props.variant === 'text' && {
-    border: 'none',
-    color: getColor(props.color, 10),
-  }),
-
-}));
+export const RightSide = styled.div({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'transparent',
+  border: 'none',
+  fontSize: 'inheritet',
+  marginRight: '8px',
+  color: 'inherit',
+});

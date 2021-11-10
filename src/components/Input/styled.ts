@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 import * as colors from '@radix-ui/colors';
 
-const getColor = <C extends keyof typeof colors>(color: C, step: number) => {
-  const saturation = `${color}${step}` as keyof typeof colors[C];
-  return colors[color][saturation];
-};
+import { getColor } from '../../utils/colors';
+import { InputBase } from '../InputBase';
 
 export interface HelperProps {
   color: keyof typeof colors;
   error: boolean;
 }
 
-export interface InputTitelProps {
+export interface InputBaseContainerProps {
+  color: keyof typeof colors;
+  variant: 'filled' | 'text' | 'outline';
+}
+
+export interface InputTitleProps {
   color: keyof typeof colors;
 }
 
@@ -36,7 +39,40 @@ export const Helper = styled.span<HelperProps>((props) => ({
   }),
 }));
 
-export const InputTitel = styled.span<InputTitelProps>((props) => ({
+export const InputTitle = styled.span<InputTitleProps>((props) => ({
   fontSize: '8px',
   color: getColor(props.color, 11),
+}));
+
+export const InputElement = styled(InputBase)<InputBaseContainerProps>((props) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'transparent',
+  borderRadius: '4px',
+
+  ...(props.variant === 'filled' && {
+    backgroundColor: getColor(props.color, 9),
+    color: getColor('whiteA', 12),
+    border: 'none',
+
+    '&:focus': {
+      backgroundColor: getColor(props.color, 10),
+    },
+  }),
+
+  ...(props.variant === 'outline' && {
+    border: '1px solid',
+    borderColor: getColor(props.color, 8),
+    color: getColor(props.color, 10),
+
+    '&:focus': {
+      borderColor: getColor(props.color, 9),
+    },
+  }),
+  ...(props.variant === 'text' && {
+    border: 'none',
+    color: getColor(props.color, 10),
+  }),
+
 }));

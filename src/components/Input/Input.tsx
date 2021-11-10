@@ -2,12 +2,11 @@ import * as React from 'react';
 import * as colors from '@radix-ui/colors';
 
 import * as S from './styled';
-import { InputBase } from '../InputBase';
+import { InputBaseProps } from '../InputBase';
 
-export interface InputProps {
+export interface InputProps extends InputBaseProps{
   variant: 'text' | 'outline' | 'filled';
   color?: keyof typeof colors;
-  contentColor?: keyof typeof colors;
   inputLabel?: string;
   helper?: string;
   error?: boolean;
@@ -16,11 +15,11 @@ export interface InputProps {
 export const Input = (props: InputProps) => {
   const {
     variant = 'outline',
-    color = 'whiteA',
-    contentColor = 'blackA',
+    color = 'blackA',
     helper,
     inputLabel,
     error = false,
+    ...other
   } = props;
   return (
     <S.Container>
@@ -29,7 +28,7 @@ export const Input = (props: InputProps) => {
           {inputLabel}
         </S.InputTitle>
       )}
-      <InputBase type="text" color={contentColor} variant={variant} />
+      <S.InputElement color={color} variant={variant} {...other} />
       {helper && (
         <S.Helper error={error} color={color}>
           {helper}

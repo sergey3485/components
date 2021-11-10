@@ -1,11 +1,7 @@
-import * as React from 'react';
 import styled from 'styled-components';
 import * as colors from '@radix-ui/colors';
 
-const getColor = <C extends keyof typeof colors>(color: C, step: number) => {
-  const saturation = `${color}${step}` as keyof typeof colors[C];
-  return colors[color][saturation];
-};
+import { getColor } from '../../utils/colors';
 
 const size: Record<string, React.CSSProperties> = {
   large: {

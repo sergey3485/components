@@ -4,14 +4,10 @@ import { Meta, Story } from '@storybook/react';
 import { InputBase, InputBaseProps } from '../InputBase';
 
 export default {
-  title: 'Example/Input',
+  title: 'Example/InputBase',
   component: InputBase,
 } as Meta;
 
 const Template: Story<InputBaseProps> = (args) => <InputBase {...args} />;
 
 export const Filled = Template.bind({});
-
-Filled.args = {
-  variant: 'outline',
-};
