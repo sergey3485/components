@@ -45,11 +45,7 @@ export const CheckboxRootContainer = styled.div<CheckboxRootContainerProps>((pro
 
   '&:hover': {
     backgroundColor: props.disabled ? 'none' : getColor(props.color, 3),
-  },
-
-  [`${CheckboxRoot}:disabled + &`]: {
     color: getColor('gray', 11),
-    backgroundColor: 'none',
   },
 }));
 
