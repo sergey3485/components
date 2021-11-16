@@ -15,12 +15,15 @@ export const Checkbox = (props: CheckboxProps) => {
     size = 40,
     defaultChecked = false,
     disabled = false,
+    onChange,
     ...other
   } = props;
 
   const [checked, setCheacked] = React.useState(defaultChecked);
 
-  const onChange = () => {
+  const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(event);
+
     const isChecked = !checked;
     setCheacked(isChecked);
   };
