@@ -15,6 +15,7 @@ export const Checkbox = (props: CheckboxProps) => {
     size = 40,
     defaultChecked = false,
     disabled = false,
+    ...other
   } = props;
 
   const [checked, setCheacked] = React.useState(defaultChecked);
@@ -25,7 +26,14 @@ export const Checkbox = (props: CheckboxProps) => {
   };
   return (
     <S.CheckboxRootContainer color={color} size={size} disabled={disabled}>
-      <S.CheckboxRoot size={size / 2} checked={checked} type="checkbox" onChange={onChange} disabled={disabled} />
+      <S.CheckboxRoot
+        size={size / 2}
+        checked={checked}
+        type="checkbox"
+        onChange={onChange}
+        disabled={disabled}
+        {...other}
+      />
       <S.CheckboxCircuit size={size / 2} color={color}>
         {checked && <RiCheckLine size={size / 2} color={color} />}
       </S.CheckboxCircuit>
