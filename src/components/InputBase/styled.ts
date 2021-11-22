@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { getColor } from '../../utils/colors';
 
 export const InputRoot = styled.input({

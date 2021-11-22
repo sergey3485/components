@@ -1,4 +1,3 @@
-import * as React from 'react';
 import * as colors from '@radix-ui/colors';
 
 import * as S from './styled';

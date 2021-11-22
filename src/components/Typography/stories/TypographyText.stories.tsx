@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import { TypographyText, TypographyTextProps } from '../Typography';
+import { Paragraph, ParagraphProps } from '../Typography';
 
 export default {
   title: 'Example/TypographyText',
-  component: TypographyText,
+  component: Paragraph,
 } as Meta;
 
-const Template: Story<TypographyTextProps> = (args) => <TypographyText {...args} />;
+const Template: Story<ParagraphProps> = (args) => <Paragraph {...args} />;
 
 export const Text = Template.bind({});
 

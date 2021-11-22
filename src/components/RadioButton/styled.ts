@@ -13,13 +13,13 @@ export interface CheckboxCircuitProps {
   color: keyof typeof colors;
 }
 
-export const CheckboxRoot = styled.input({
+export const RadioButtonRoot = styled.input({
   padding: 0,
   outline: 0,
   backgroundColor: 'transparent',
   color: 'inherit',
-  width: '50%',
-  height: '50%',
+  width: '75%',
+  height: '75%',
   borderRadius: '4px',
   opacity: 0,
   position: 'absolute',
@@ -27,13 +27,12 @@ export const CheckboxRoot = styled.input({
   marginRight: 'auto',
   zIndex: 1,
   cursor: 'pointer',
-
   '&: disabled': {
     cursor: 'default',
   },
 });
 
-export const CheckboxRootContainer = styled.div<CheckboxRootContainerProps>((props) => ({
+export const RadioButtonContainer = styled.div<CheckboxRootContainerProps>((props) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -41,26 +40,15 @@ export const CheckboxRootContainer = styled.div<CheckboxRootContainerProps>((pro
   border: 'none',
   color: getColor(props.color, 10),
   position: 'absolute',
-  width: `${props.size}px`,
-  height: `${props.size}px`,
+  width: props.size,
+  height: props.size,
+  borderRadius: '50%',
 
   '&:hover': {
     backgroundColor: props.disabled ? 'none' : getColor(props.color, 3),
     color: getColor('gray', 11),
   },
-}));
-
-export const CheckboxCircuit = styled.div<CheckboxCircuitProps>((props) => ({
-  display: 'flex',
-  margin: 0,
-  padding: 0,
-  background: 'inherit',
-  border: '1px solid',
-  borderColor: getColor(props.color, 9),
-  width: '50%',
-  height: '50%',
-
-  [`${CheckboxRoot}:disabled + &`]: {
-    borderColor: getColor('gray', 4),
+  '> &': {
+    color: 'inherit',
   },
 }));
